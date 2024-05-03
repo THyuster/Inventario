@@ -31,21 +31,19 @@
             </li>
           </ul>
           <div class="links">
-            <router-link class="navbar-brand" id="cerrar_sesion" to="/InicioSesion">Cerrar Sesión</router-link>
+            <a class="navbar-brand" id="cerrar_sesion" @click.prevent="handleLogout">Cerrar Sesión</a>
           </div>
         </div>
       </div>
     </nav>
   </main>
-
-  
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue';
+import { cerrarSesion } from '@/router';
 
 defineProps(["mensaje"]);
-
 const navbarCollapse = ref<HTMLElement | null>(null);
 
 onMounted(() => {
@@ -63,6 +61,11 @@ const toggleNavbar = () => {
     navbarCollapse.value?.classList.add('show');
   }
 };
+
+const handleLogout = () => {
+  cerrarSesion();
+  window.location.href = '/InicioSesion';
+};
 </script>
 
 <style scoped>
@@ -73,6 +76,7 @@ const toggleNavbar = () => {
 #cerrar_sesion {
   color: red;
   font-weight: bold;
+  cursor: pointer;
 }
 #home {
   font-size: larger;

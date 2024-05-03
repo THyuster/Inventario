@@ -5,7 +5,7 @@
       <span></span>
       <span></span>
       <span></span>
-      <form class="form-inner">
+      <form class="form-inner" @submit.prevent="login">
         <h1>Inicio</h1>
         <div class="inputbox">
           <input type="text" v-model="username" required>
@@ -19,7 +19,7 @@
           <label for=""><input type="checkbox" v-model="rememberCredentials">Recordar</label>
           <a href="#">Olvidé la Contraseña</a>
         </div>
-        <button @click.prevent="login">Iniciar</button>
+        <button type="submit">Iniciar</button>
         <div class="register">
           <p>No tengo una cuenta <a href="#">Regístrate</a></p>
         </div>
@@ -28,14 +28,17 @@
   </div>
 </template>
 
-
 <script lang="ts">
-export default {
+import { defineComponent } from 'vue';
+import { iniciarSesion } from '@/router';
+
+export default defineComponent({
+  name: 'LoginView',
   data() {
     return {
       username: '',
       password: '',
-      rememberCredentials: false 
+      rememberCredentials: false,
     };
   },
   mounted() {
@@ -49,25 +52,22 @@ export default {
     login() {
       if (this.username === 'yuster' && this.password === 'junior123') {
         if (this.rememberCredentials) {
-
           localStorage.setItem('savedUsername', this.username);
           localStorage.setItem('savedPassword', this.password);
           localStorage.setItem('rememberCredentials', 'true');
         } else {
-
           localStorage.removeItem('savedUsername');
           localStorage.removeItem('savedPassword');
           localStorage.removeItem('rememberCredentials');
         }
-
-        localStorage.setItem('isLoggedIn', 'true');
+        iniciarSesion();
         this.$router.replace('/home');
       } else {
         alert('Usuario o contraseña incorrectos');
       }
     }
   }
-}
+});
 </script>
 
 <style scoped>
