@@ -1,0 +1,44 @@
+ .group-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  height: 100%;
+  width: 100%;
+} 
+
+.text-movimientos {
+  align-items: center;
+  height: 50px;
+  font-style: solid;
+  font-size: 25px;
+  margin-left: 10px;
+} 
+
+/* 
+ Estilos para dispositivos móviles   */
+ @media (max-width: 767px) {
+  .group-btn {
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+  }
+
+  .text-movimientos {
+    font-size: 20px;
+    width: 120px;
+    margin: 10px;
+  }
+
+
+  .dataTables_wrapper .dataTables_length,
+  .dataTables_wrapper .dataTables_filter,
+  .dataTables_wrapper .dataTables_info,
+  .dataTables_wrapper .dataTables_paginate {
+    text-align: center;
+  } 
+  .dataTables_paginate{
+    display: flex;
+    justify-content: center;
+  }
+} 
