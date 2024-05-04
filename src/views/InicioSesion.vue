@@ -32,6 +32,11 @@
 import { defineComponent } from 'vue';
 import { iniciarSesion } from '@/router';
 
+const validCredentials: Record<string, string> = {
+  'yuster': 'junior123',
+  'ale': 'ale123',
+};
+
 export default defineComponent({
   name: 'LoginView',
   data() {
@@ -41,6 +46,7 @@ export default defineComponent({
       rememberCredentials: false,
     };
   },
+
   mounted() {
     if (localStorage.getItem('rememberCredentials') === 'true') {
       this.username = localStorage.getItem('savedUsername') || '';
@@ -50,7 +56,10 @@ export default defineComponent({
   },
   methods: {
     login() {
-      if (this.username === 'yuster' && this.password === 'junior123') {
+      const username = this.username;
+      const password = this.password;
+
+      if (validCredentials[username] === password) {
         if (this.rememberCredentials) {
           localStorage.setItem('savedUsername', this.username);
           localStorage.setItem('savedPassword', this.password);
@@ -70,6 +79,7 @@ export default defineComponent({
 });
 </script>
 
+
 <style scoped>
-@import '/src/assets/estilosSesion.css';
+  @import '/src/assets/estilosSesion.css';
 </style>
