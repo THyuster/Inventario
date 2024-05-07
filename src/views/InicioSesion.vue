@@ -34,7 +34,6 @@ import { iniciarSesion } from '@/router';
 
 const validCredentials: Record<string, string> = {
   'yuster': 'junior123',
-  'ale': 'ale123',
 };
 
 export default defineComponent({

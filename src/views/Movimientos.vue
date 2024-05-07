@@ -4,7 +4,7 @@
     <p class="me-auto mb-3 mb-lg-2 text-movimientos" id="textoProveedor">Movimientos</p>
   </div>
   <div class="group-btn">
-    <Buttons></Buttons>
+    <ButtonsMovimientos></ButtonsMovimientos>
   </div>
   <div class="row">
     <div class="col-12">
@@ -41,6 +41,27 @@
               <th>PRECIO</th>
             </tr>
           </thead>
+          <tbody>
+          <tr>
+            <td>Juan</td>
+            <td>25</td>
+            <td>Madrid</td>
+            <td>Madrid</td>
+          </tr>
+          <tr>
+            <td>Ana</td>
+            <td>30</td>
+            <td>Barcelona</td>
+            <td>Madrid</td>
+          </tr>
+          <tr>
+            <td>Pedro</td>
+            <td>35</td>
+            <td>Sevilla</td>
+            <td>Madrid</td>
+          </tr>
+        </tbody>
+
         </DataTable>
       </div>
     </div>
@@ -50,7 +71,7 @@
 <script setup lang="ts">
 
 import navbar from '@/components/navbar.vue';
-import Buttons from '@/components/Buttons.vue';
+import ButtonsMovimientos from '@/components/ButtonsMovimientos.vue';
 import DataTable from 'datatables.net-vue3';
 import DataTableLib from 'datatables.net-bs5';
 import 'datatables.net-responsive';

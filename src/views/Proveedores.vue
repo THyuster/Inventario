@@ -4,7 +4,7 @@
     <p class="me-auto mb-3 mb-lg-2 text-movimientos" id="textoProveedor">Proveedores</p>
   </div>
     <div class="group-btn">
-    <Buttons></Buttons>
+    <ButtonsProveedores></ButtonsProveedores>
   </div>
   <div class="row">
     <div class="col-12">
@@ -51,7 +51,7 @@
  </template>
 
 <script setup lang="ts">
-import Buttons from '@/components/Buttons.vue';
+import ButtonsProveedores from '@/components/ButtonsProveedores.vue';
 import navbar from '@/components/navbar.vue';
 import DataTable from 'datatables.net-vue3';
 import DataTableLib from 'datatables.net-bs5';

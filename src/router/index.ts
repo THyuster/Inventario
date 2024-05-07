@@ -5,7 +5,7 @@ import InicioSesion from '@/views/InicioSesion.vue'
 import Proveedores from '@/views/Proveedores.vue'
 import Movimientos from '@/views/Movimientos.vue'
 import Estadisticas from '@/views/Estadisticas.vue'
-import Buttons from '@/components/Buttons.vue'
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -16,7 +16,7 @@ const router = createRouter({
     { path: '/Proveedores', name: 'Proveedores', component: Proveedores },
     { path: '/Movimientos', name: 'Movimientos', component: Movimientos },
     { path: '/Estadisticas', name: 'Estadisticas', component: Estadisticas },
-    { path: '/Buttons', name: 'Buttons', component: Buttons },
+
   ]
 })
 
