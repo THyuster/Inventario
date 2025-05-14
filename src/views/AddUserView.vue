@@ -1,6 +1,7 @@
 <template>
+  <navbar/>
   <div class="add-user-container">
-    <h2>Add New User</h2>
+    <h2>Add New User</h2> 
     <form @submit.prevent="addUser" class="user-form">
       <div class="form-group">
         <label for="name">Name:</label>
