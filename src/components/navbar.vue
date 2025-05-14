@@ -70,10 +70,19 @@ const handleLogout = () => {
 
 <style scoped>
 .navbar-brand {
+  font-family: "Roboto", Arial, sans-serif;
   color: #fff;
   font-size: large;
+  transition: color 0.3s ease; /* Add a smooth transition for color change */
 }
+
+.navbar-brand:hover {
+  color: #ccc; /* Change color on hover */
+}
+
 #cerrar_sesion {
+  font-family: "Roboto", Arial, sans-serif;
+  transition: color 0.3s ease; /* Add a smooth transition for color change */
   color: red;
   font-weight: bold;
   cursor: pointer;
@@ -81,4 +90,9 @@ const handleLogout = () => {
 #home {
   font-size: larger;
 }
+
+#cerrar_sesion:hover {
+  color: #ff6666; /* Change color on hover */
+}
+
 </style>
