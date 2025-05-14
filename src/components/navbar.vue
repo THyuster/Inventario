@@ -29,6 +29,9 @@
             <li class="nav-item">
               <router-link class="navbar-brand" to="/Estadisticas">Estadisticas</router-link>
             </li>
+            <li class="nav-item">
+              <router-link class="navbar-brand" to="/addUser">Add User</router-link>
+            </li>
           </ul>
           <div class="links">
             <a class="navbar-brand" id="cerrar_sesion" @click.prevent="handleLogout">Cerrar Sesión</a>
