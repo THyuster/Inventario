@@ -30,7 +30,7 @@
               <router-link class="navbar-brand" to="/Estadisticas">Estadisticas</router-link>
             </li>
             <li class="nav-item">
-              <router-link class="navbar-brand" to="/addUser">Add User</router-link>
+              <router-link class="navbar-brand" to="/addUser">Añadir Usuarios</router-link>
             </li>
           </ul>
           <div class="links">

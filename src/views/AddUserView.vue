@@ -1,93 +1,107 @@
 <template>
   <navbar/>
-  <div class="add-user-container">
-    <h2>Add New User</h2> 
-    <form @submit.prevent="addUser" class="user-form">
-      <div class="form-group">
-        <label for="name">Name:</label>
-        <input type="text" id="name" v-model="newUser.name" required>
-      </div>
-      <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="email" id="email" v-model="newUser.email" required>
-      </div>
-      <div class="form-group">
-        <label for="password">Password:</label>
-        <input type="password" id="password" v-model="newUser.password" required>
-      </div>
-      <button type="submit" class="submit-button">Add User</button>
-    </form>
+  <div class="table-container">
+    <h2>Usuarios</h2>
+    <button class="create-user-button">Create User</button>
+    <table class="users-table">
+
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <template v-for="(user, index) in users" :key="index">
+          <tr>
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>
+              <button class="action-button edit-button">Edit</button>
+              <button class="action-button delete-button">Delete</button>
+            </td>
+          </tr>
+        </template>
+        <!-- Placeholder for when there are no users -->
+        <template v-if="users.length === 0">
+          <tr>
+            <td colspan="3" style="text-align: center;">No users found.</td>
+          </tr>
+        </template>
+      </tbody>
+    </table>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { defineComponent, ref, onMounted } from 'vue'
+import navbar from '@/components/navbar.vue'
 
 export default defineComponent({
   name: 'AddUserView',
-  setup() {
-    const newUser = ref({
-      name: '',
-      email: '',
-      password: ''
-    });
-
-    const addUser = () => {
-      // Here you would typically handle the logic to add the new user
-      // This could involve making an API call to your backend
-      console.log('New user data:', newUser.value);
-      // Reset the form after submission
-      newUser.value = {
-        name: '',
-        email: '',
-        password: ''
-      };
-      // You might want to show a success message or redirect the user
-    };
+  components : {
+    navbar
+  },
+  setup: () => {
+    // Placeholder user data
+    const users = ref([
+      { name: 'John Doe', email: 'john.doe@example.com' },
+      { name: 'Jane Smith', email: 'jane.smith@example.com' },
+      { name: 'Peter Jones', email: 'peter.jones@example.com' }
+    ]);
 
     return {
-      newUser,
-      addUser
+      users
     };
   }
 });
 </script>
 
 <style scoped>
-.add-user-container {
-  max-width: 500px;
-  margin: 50px auto;
-  padding: 30px;
-  background-color: #f9f9f9;
+.table-container {
+  position: relative; /* Changed from absolute for better flow with navbar */
+  margin: 20px auto; /* Centered and added margin */
+  width: 90%; /* Increased width */
+  padding: 20px; /* Added padding */
+  background-color: #fff; /* White background */
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
-  text-align: center;
+  text-align: left; /* Align title to left */
   color: #333;
   margin-bottom: 20px;
 }
 
-.user-form .form-group {
-  margin-bottom: 15px;
-}
-
-.user-form label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-  color: #555;
-}
-
-.user-form input[type="text"],
-.user-form input[type="email"],
-.user-form input[type="password"] {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
+.create-user-button {
+  display: inline-block; /* Make button inline */
+  margin-bottom: 20px;
+  padding: 10px 15px;
+  background-color: #28a745; /* Green color for create */
+  color: white;
+  border: none;
   border-radius: 4px;
-  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.create-user-button:hover {
+  background-color: #218838;
+}
+
+.users-table {
+  width: 100%;
+  border-collapse: collapse; /* Collapse borders */
+  margin-top: 20px;
+}
+
+.users-table th, .users-table td {
+  border: 1px solid #ddd; /* Add borders */
+  padding: 12px; /* Increased padding */
+  text-align: left;
 }
 
 .submit-button {
@@ -105,5 +119,32 @@ h2 {
 
 .submit-button:hover {
   background-color: #0056b3;
+}
+
+.action-button {
+  padding: 5px 10px;
+  margin-right: 5px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.edit-button {
+  background-color: #ffc107; /* Yellow for edit */
+  color: #333;
+}
+
+.edit-button:hover {
+  background-color: #e0a800;
+}
+
+.delete-button {
+  background-color: #dc3545; /* Red for delete */
+  color: white;
+}
+.delete-button:hover {
+  background-color: #c82333;
 }
 </style>
