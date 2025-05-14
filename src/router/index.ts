@@ -5,6 +5,7 @@ import InicioSesion from '@/views/InicioSesion.vue'
 import Proveedores from '@/views/Proveedores.vue'
 import Movimientos from '@/views/Movimientos.vue'
 import Estadisticas from '@/views/Estadisticas.vue'
+import AddUserView from '../views/AddUserView.vue'
 
 
 const router = createRouter({
@@ -16,6 +17,7 @@ const router = createRouter({
     { path: '/Proveedores', name: 'Proveedores', component: Proveedores },
     { path: '/Movimientos', name: 'Movimientos', component: Movimientos },
     { path: '/Estadisticas', name: 'Estadisticas', component: Estadisticas },
+    { path: '/addUser', name: 'AddUser', component: AddUserView },
 
   ]
 })
